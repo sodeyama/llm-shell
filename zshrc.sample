@@ -1,0 +1,18 @@
+# ====================================
+# LLM Helper Functions
+# ====================================
+# Various LLM-powered command line tools
+llm_helper() {
+  local prompt="$1"
+  shift
+  local query="$*"
+  local selected=$(llm -m claude-3.7-sonnet "$prompt: $query" | fzf)
+  if [ -n "$selected" ]; then
+    echo -n "$selected" | pbcopy
+    echo "'$selected' has been copied to clipboard. Paste with Cmd+V"
+  fi
+}
+
+# Command suggestions
+alias gllm='llm_helper "gitコマンド候補のだけ簡潔に出して:"'
+alias dllm='llm_helper "dockerコマンドの候補だけ簡潔に出して:"'
