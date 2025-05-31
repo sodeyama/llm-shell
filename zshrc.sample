@@ -6,7 +6,7 @@ llm_helper() {
   local prompt="$1"
   shift
   local query="$*"
-  local selected=$(llm -m claude-3.7-sonnet "$prompt: $query" | fzf)
+  local selected=$(llm "$prompt: $query" | fzf)
   if [ -n "$selected" ]; then
     echo -n "$selected" | pbcopy
     echo "'$selected' has been copied to clipboard. Paste with Cmd+V"

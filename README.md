@@ -31,6 +31,7 @@ gitやdockerのコマンドを忘れた際に、LLMをターミナルから呼�
 1. llmのインストール
 2. このリポジトリのコードを自身の .zshrc にコピー
 3. 欲しいエイリアスを.zshrcに追加
+4. llm keys set openai で、OpenAI APIキーを設定
 
 ## 使い方
 ```sh
